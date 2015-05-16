@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Scrollie.js - Simple scrollbars that don't get in your way</title>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="scrollie.css" type="text/css">
+
+        <style>
+            body { background-color: #000; }
+            p { color: #fff; }
+            .black { color: #000; }
+
+            .content {
+                width: 400px;
+                height: 300px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -150px;
+                margin-left: -200px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div class="scroll-outer">
+                <div class="scrollbar"></div>
+
+                <div class="scroll-inner">
+                    <div class="scroll-content">
+                        <img src="longcat.gif">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="node_modules/wetfish-basic/basic.js"></script>
+        <script src="scrollie.js"></script>
+    </body>
+</html>

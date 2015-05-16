@@ -1,0 +1,27 @@
+{
+  "name": "scrollie",
+  "version": "0.0.0",
+  "description": "Custom scrollbars for any browser!",
+  "main": "scrollie.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wetfish/scrollie.git"
+  },
+  "keywords": [
+    "wetfish",
+    "scrollie",
+    "scrollbars"
+  ],
+  "author": "Rachel Fish <rachel@wetfish.net> (https://wetfish.net)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wetfish/scrollie/issues"
+  },
+  "homepage": "https://github.com/wetfish/scrollie#readme",
+  "dependencies": {
+    "wetfish-basic": "0.1.0"
+  }
+}

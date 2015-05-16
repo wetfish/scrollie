@@ -1,0 +1,26 @@
+.scroll-outer {
+    overflow: hidden;
+    width: 400px;
+    height: 300px;
+    position: relative;
+}
+
+.scroll-inner {
+    width: 415px;
+    height: 300px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.scrollbar {
+    position: absolute;
+    right: 0;
+    width: 15px;
+    border: 3px solid #6a635e;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.scrollbar.active {
+    background-color: #cfcac2;
+}
