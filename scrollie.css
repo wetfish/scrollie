@@ -5,6 +5,15 @@
     position: relative;
 }
 
+.scroll-outer.active {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .scroll-inner {
     width: 415px;
     height: 300px;
@@ -21,6 +30,6 @@
     border-radius: 8px;
 }
 
-.scrollbar.active {
+.active .scrollbar {
     background-color: #cfcac2;
 }

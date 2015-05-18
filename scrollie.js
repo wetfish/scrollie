@@ -19,7 +19,7 @@ var scroll = {active: false};
 
 $('.scrollbar').on('mousedown', function(event)
 {
-    $('.scrollbar').addClass('active');
+    $('.scroll-outer').addClass('active');
     scroll.active = true;
 
     scroll.lastX = event.clientX;
@@ -50,6 +50,6 @@ $('html').on('mousemove', function(event)
 
 $('html').on('mouseup', function()
 {
-    $('.scrollbar').removeClass('active');
+    $('.scroll-outer').removeClass('active');
     scroll.active = false;
 });
