@@ -4,24 +4,24 @@
     var Scrollie = function(element)
     {
         this.element = element;
+        this.active = false;
+
         this.bind();
-        
+        this.update();
     }
 
     // Bind scrollbar events
     Scrollie.prototype.bind = function()
     {
+        // Preserve scope inside event handlers
+        var scroll = this;
+
         // Update the scrollbar whenever the box is scrolled
-        $('.scroll-inner').on('scroll', this.update);
+        $(scroll.element).find('.scroll-inner').on('scroll', this.update.bind(this));
 
-        // Initialze the scrollbar on page load
-        this.update();
-
-        var scroll = {active: false};
-
-        $('.scrollbar').on('mousedown', function(event)
+        $(scroll.element).find('.scrollbar').on('mousedown', function(event)
         {
-            $('.scroll-outer').addClass('active');
+            $(scroll.element).addClass('active');
             scroll.active = true;
 
             scroll.lastX = event.clientX;
@@ -38,12 +38,12 @@
                 var barDelta = event.clientY - scroll.lastY;
 
                 // Find the amount the actual scroll area needs to move
-                var scrollHeight = $('.scroll-inner').size().height.outer;
-                var contentHeight = $('.scroll-content').size().height.outer;
+                var scrollHeight = $(scroll.element).find('.scroll-inner').size().height.outer;
+                var contentHeight = $(scroll.element).find('.scroll-content').size().height.outer;
 
                 var scrollDelta = contentHeight / scrollHeight * barDelta;
 
-                $('.scroll-inner').elements[0].scrollTop += scrollDelta;
+                $(scroll.element).find('.scroll-inner').elements[0].scrollTop += scrollDelta;
 
                 scroll.lastX = event.clientX;
                 scroll.lastY = event.clientY;
@@ -52,7 +52,7 @@
 
         $('html').on('mouseup', function()
         {
-            $('.scroll-outer').removeClass('active');
+            $(scroll.element).removeClass('active');
             scroll.active = false;
         });
     }
@@ -60,22 +60,20 @@
     // Update scrollbar size and position
     Scrollie.prototype.update = function()
     {
-        var scrollHeight = $('.scroll-inner').size().height.outer;
-        var contentHeight = $('.scroll-content').size().height.outer;
+        var scroll = this;
+        var scrollHeight = $(scroll.element).find('.scroll-inner').size().height.outer;
+        var contentHeight = $(scroll.element).find('.scroll-content').size().height.outer;
         var barHeight = scrollHeight / contentHeight * 100;
-        var barPosition = $('.scroll-inner').elements[0].scrollTop / contentHeight * 100;
-        
-        $('.scrollbar').elements[0].style.height = barHeight + "%";
-        $('.scrollbar').elements[0].style.top = barPosition + "%";
+        var barPosition = $(scroll.element).find('.scroll-inner').scroll().top / contentHeight * 100;
+        $(scroll.element).find('.scrollbar').style({'height': barHeight + "%", 'top': barPosition + "%"});
     }
 
     // Wetfish basic wrapper
     $.prototype.scrollie = function()
     {
-        for(var i = 0, l = this.elements.length; i < l; i++)
+        this.forEach(this.elements, function(index, element)
         {
-            var element = this.elements[i];
             new Scrollie(element);
-        }
+        });
     }
 }(basic));

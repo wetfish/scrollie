@@ -3,6 +3,7 @@
     width: 400px;
     height: 300px;
     position: relative;
+    display: inline-block;
 }
 
 .scroll-outer.active {
@@ -28,6 +29,10 @@
     border: 3px solid #6a635e;
     box-sizing: border-box;
     border-radius: 8px;
+}
+
+.another-example .scrollbar {
+    left: 0;
 }
 
 .active .scrollbar {
