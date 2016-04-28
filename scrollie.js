@@ -38,8 +38,8 @@
                 var barDelta = event.clientY - scroll.lastY;
 
                 // Find the amount the actual scroll area needs to move
-                var scrollHeight = $(scroll.element).find('.scroll-inner').size().height.outer;
-                var contentHeight = $(scroll.element).find('.scroll-content').size().height.outer;
+                var scrollHeight = $(scroll.element).find('.scroll-inner').height('outer');
+                var contentHeight = $(scroll.element).find('.scroll-content').height('outer');
 
                 var scrollDelta = contentHeight / scrollHeight * barDelta;
 
@@ -61,8 +61,8 @@
     Scrollie.prototype.update = function()
     {
         var scroll = this;
-        var scrollHeight = $(scroll.element).find('.scroll-inner').size().height.outer;
-        var contentHeight = $(scroll.element).find('.scroll-content').size().height.outer;
+        var scrollHeight = $(scroll.element).find('.scroll-inner').height('outer');
+        var contentHeight = $(scroll.element).find('.scroll-content').height('outer');
         var barHeight = scrollHeight / contentHeight * 100;
         var barPosition = $(scroll.element).find('.scroll-inner').scroll().top / contentHeight * 100;
         $(scroll.element).find('.scrollbar').style({'height': barHeight + "%", 'top': barPosition + "%"});
@@ -71,7 +71,7 @@
     // Wetfish basic wrapper
     $.prototype.scrollie = function()
     {
-        this.forEach(this.elements, function(index, element)
+        this.forEach(this.elements, function(element)
         {
             new Scrollie(element);
         });
